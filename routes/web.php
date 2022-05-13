@@ -21,8 +21,35 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::name('/')->group(function () {
-    Route::get('/home', function () {
-        // Route assigned name "admin.users"...
-    })->name('home');
+Route::get('/activity', function () {
+    return view('activity');
 });
+
+Route::get('/event', function () {
+    return view('event');
+});
+
+Route::get('/live', function () {
+    return view('live');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/giving', function () {
+    return view('giving');
+});
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+

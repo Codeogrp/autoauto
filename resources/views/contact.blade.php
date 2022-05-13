@@ -468,13 +468,13 @@
     <div class="container">
       <div class="sigma_subheader-inner">
         <div class="sigma_subheader-text">
-          <h1>Live</h1>
-          <p class="blockquote light"> Vivez nos culte EN DIRECT </p>
+          <h1>Contactez Nous</h1>
+          <p class="blockquote light"> Nous sommes à votre disposition pour vous fournir toutes les informations nécessaires</p>
         </div>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a class="btn-link" href="#">Accueil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Live</li>
+            <li class="breadcrumb-item active" aria-current="page">Contact</li>
           </ol>
         </nav>
       </div>
@@ -483,179 +483,105 @@
   </div>
   <!-- partial -->
 
-<!-- Broadcast Start -->
-  <div class="section section-padding">
+  <!-- Map Start -->
+  <div class="sigma_map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9914406081493!2d2.292292615201654!3d48.85837360866272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sin!4v1571115084828!5m2!1sen!2sin"
+      allowfullscreen=""></iframe>
+  </div>
+  <!-- Map End -->
+
+  <!-- Contact form Start -->
+  <div class="section mt-negative pt-0">
     <div class="container">
-      <div class="section-title text-center">
-        
-        <h4 class="title">Culte en LIVE</h4>
-      </div>
-      <div class="row sigma_broadcast-video">
-        <div class="col-12 mb-5">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="sigma_video-popup-wrap">
-                <img src="assets/img/video-gallery/01.png" alt="video">
-                <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="sigma_video-popup popup-youtube">
-                  <i class="fas fa-play"></i>
-                </a>
-              </div>
+
+      <form class="sigma_box box-lg m-0">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <i class="far fa-user"></i>
+              <input type="text" placeholder="Full Name" class="form-control dark" name="Name">
             </div>
-            <div class="col-lg-6">
-              <div class="sigma_box m-0 h-100 d-flex align-items-center">
-                <div>
-                <p class="custom-primary mb-0 fw-600 fs-16">Aug 12, 2021</p>
-                <h4 class="title">Culte de l'apôtre Charles PASSO</h4>
-                <p class="m-0"> We are a church that belives in Jesus christ and the followers and We are a church that belives in Jesus christ. This is where you should start Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod This is where you should start Lorem ipsum dolor sit amet consectetur</p>
-                </div>
-              </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <i class="far fa-envelope"></i>
+              <input type="email" placeholder="Email Address" class="form-control dark" name="email">
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <i class="far fa-pencil"></i>
+              <input type="text" placeholder="Subject" class="form-control dark" name="Subesubject">
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6 mb-30">
-          <div class="sigma_video-popup-wrap">
-            <img src="assets/img/video-gallery/1.png" alt="video">
-            <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="sigma_video-popup popup-sm popup-youtube">
-              <i class="fas fa-play"></i>
-            </a>
-          </div>
-          <h6 class="mb-0 mt-3">Kenne G. Patten</h6>
+        <div class="form-group">
+          <textarea name="message" placeholder="Enter Message" cols="45" rows="5" class="form-control dark"></textarea>
         </div>
-        <div class="col-lg-3 col-sm-6 mb-30">
-          <div class="sigma_video-popup-wrap">
-            <img src="assets/img/video-gallery/2.jpg" alt="video">
-            <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="sigma_video-popup popup-sm popup-youtube">
-              <i class="fas fa-play"></i>
-            </a>
-          </div>
-          <h6 class="mb-0 mt-3">David M. Dahan</h6>
+        <div class="text-center">
+          <button type="submit" class="sigma_btn-custom" name="button">Submit Now</button>
         </div>
-        <div class="col-lg-3 col-sm-6 mb-30">
-          <div class="sigma_video-popup-wrap">
-            <img src="assets/img/video-gallery/3.jpg" alt="video">
-            <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="sigma_video-popup popup-sm popup-youtube">
-              <i class="fas fa-play"></i>
-            </a>
-          </div>
-          <h6 class="mb-0 mt-3">D. Kathy Santos Kito</h6>
-        </div>
-        <div class="col-lg-3 col-sm-6 mb-30">
-          <div class="sigma_video-popup-wrap">
-            <img src="assets/img/video-gallery/4.jpg" alt="video">
-            <a href="https://www.youtube.com/watch?v=TKnufs85hXk" class="sigma_video-popup popup-sm popup-youtube">
-              <i class="fas fa-play"></i>
-            </a>
-          </div>
-          <h6 class="mb-0 mt-3">Kim I. Bailey</h6>
-        </div>
-      </div>
+      </form>
+
     </div>
   </div>
-  <!-- Broadcast End -->
+  <!-- Contact form End -->
 
-  <!-- Blog Start -->
+  <!-- Icons Start -->
   <div class="section section-padding pt-0">
     <div class="container">
-
-      <div class="section-title text-center">
-        <p class="subtitle">Blog</p>
-        <h4 class="title">News Feed</h4>
-      </div>
-
       <div class="row">
 
-        <!-- Article Start -->
-        <div class="col-lg-4 col-md-6">
-          <article class="sigma_post">
-            <div class="sigma_post-thumb">
-              <a href="blog-details.html">
-                <img src="assets/img/blog/2.jpg" alt="post">
-              </a>
+        <div class="col-lg-4">
+          <div class="sigma_icon-block text-center light icon-block-7">
+            <i class="flaticon-email"></i>
+            <div class="sigma_icon-block-content">
+              <span>Send Email <i class="far fa-arrow-right"></i> </span>
+              <h5> Email Address</h5>
+              <p>info@example.com</p>
+              <p>info@support.com</p>
             </div>
-            <div class="sigma_post-body">
-              <div class="sigma_post-meta">
-                <div class="me-3">
-                  <i class="far fa-cross"></i>
-                  <a href="blog-details.html" class="sigma_post-category">Church</a>,
-                  <a href="blog-details.html" class="sigma_post-category">Love</a>
-                </div>
-                <a href="blog-details.html" class="sigma_post-date"> <i class="far fa-calendar"></i> May 20, 2021</a>
-              </div>
-              <h5> <a href="blog-details.html">All we've discovered by now, the world can change</a> </h5>
-              <div class="sigma_post-single-author">
-                <img src="assets/img/people/1.jpg" alt="author">
-                <div class="sigma_post-single-author-content">
-                  By <p>Jina Flock</p>
-                </div>
-              </div>
+            <div class="icon-wrapper">
+              <i class="flaticon-email"></i>
             </div>
-          </article>
+          </div>
         </div>
-        <!-- Article End -->
 
-        <!-- Article Start -->
-        <div class="col-lg-4 col-md-6">
-          <article class="sigma_post">
-            <div class="sigma_post-thumb">
-              <a href="blog-details.html">
-                <img src="assets/img/blog/1.jpg" alt="post">
-              </a>
+        <div class="col-lg-4">
+          <div class="sigma_icon-block text-center light icon-block-7">
+            <i class="flaticon-telephone"></i>
+            <div class="sigma_icon-block-content">
+              <span>Call Us Now <i class="far fa-arrow-right"></i> </span>
+              <h5> Phone Number </h5>
+              <p> +123 478 390 </p>
+              <p> +489 472 928 </p>
             </div>
-            <div class="sigma_post-body">
-              <div class="sigma_post-meta">
-                <div class="me-3">
-                  <i class="far fa-cross"></i>
-                  <a href="blog-details.html" class="sigma_post-category">Church</a>,
-                  <a href="blog-details.html" class="sigma_post-category">Love</a>
-                </div>
-                <a href="blog-details.html" class="sigma_post-date"> <i class="far fa-calendar"></i> May 20, 2021</a>
-              </div>
-              <h5> <a href="blog-details.html">All we've discovered by now, the world can change</a> </h5>
-              <div class="sigma_post-single-author">
-                <img src="assets/img/people/2.jpg" alt="author">
-                <div class="sigma_post-single-author-content">
-                  By <p>Jina Flock</p>
-                </div>
-              </div>
+            <div class="icon-wrapper">
+              <i class="flaticon-telephone"></i>
             </div>
-          </article>
+          </div>
         </div>
-        <!-- Article End -->
 
-        <!-- Article Start -->
-        <div class="col-lg-4 col-md-6">
-          <article class="sigma_post">
-            <div class="sigma_post-thumb">
-              <a href="blog-details.html">
-                <img src="assets/img/blog/3.jpg" alt="post">
-              </a>
+        <div class="col-lg-4">
+          <div class="sigma_icon-block text-center light icon-block-7">
+            <i class="flaticon-paper-plane"></i>
+            <div class="sigma_icon-block-content">
+              <span>Find Us Here <i class="far fa-arrow-right"></i> </span>
+              <h5> Location </h5>
+              <p>16/A Daddy Yankee Tower</p>
+              <p>New York, US</p>
             </div>
-            <div class="sigma_post-body">
-              <div class="sigma_post-meta">
-                <div class="me-3">
-                  <i class="far fa-cross"></i>
-                  <a href="blog-details.html" class="sigma_post-category">Church</a>,
-                  <a href="blog-details.html" class="sigma_post-category">Love</a>
-                </div>
-                <a href="blog-details.html" class="sigma_post-date"> <i class="far fa-calendar"></i> May 20, 2021</a>
-              </div>
-              <h5> <a href="blog-details.html">All we've discovered by now, the world can change</a> </h5>
-              <div class="sigma_post-single-author">
-                <img src="assets/img/people/1.jpg" alt="author">
-                <div class="sigma_post-single-author-content">
-                  By <p>Jina Flock</p>
-                </div>
-              </div>
+            <div class="icon-wrapper">
+              <i class="flaticon-paper-plane"></i>
             </div>
-          </article>
+          </div>
         </div>
-        <!-- Article End -->
 
       </div>
-
     </div>
   </div>
-  <!-- Blog End -->
+  <!-- Icons End -->
 
   <!-- partial:partia/__footer.html -->
   <footer class="sigma_footer footer-2 sigma_footer-dark">

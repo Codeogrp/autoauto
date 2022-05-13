@@ -258,57 +258,44 @@
   <!-- partial:partia/__mobile-nav.html -->
   <aside class="sigma_aside sigma_aside-left">
 
-    <a class="navbar-brand" href="index.html"> <img src="{{ asset('assets/img/logo.png') }}" alt="logo"> </a>
+    <a class="navbar-brand" href="{{url('home')}}"> <img src="{{ asset('assets/img/logo.png') }}" alt="logo"> </a>
 
    
     <!-- Menu -->
     <ul class="navbar-nav">
       <li class="menu-item ">
-        <a href="index.html">Accueil</a>
+        <a href="{{url('home')}}">Accueil</a>
         
       </li>
       
 
-      <li class="menu-item menu-item-has-children mega-menu-wrapper">
-        <a href="about.html">A Propos</a>
-        <ul class="sub-menu">
-          <div class="row">
-            <div class="col-lg-6">
-              <li class="menu-item"> <a href="shortcodes/about.html">Historique</a> </li>
-              <li class="menu-item"> <a href="shortcodes/about-volunteer.html">Nos Apôtres</a> </li>
-             </div>
-            <div class="col-lg-6">
-            
-              <li class="menu-item"> <a href="shortcodes/donation.html">Dons</a> </li>
-              <li class="menu-item"> <a href="shortcodes/events.html">Evenements</a> </li>
-              <li class="menu-item"> <a href="shortcodes/features.html">Partenaires</a> </li>
-            </div>
-            
-            
-          </div>
-        </ul>
-      </li>
-
-      <li class="menu-item menu-item-has-children mega-menu-wrapper">
-        <a href="activity.html">Activités</a>
-        <ul class="sub-menu">
-          <div class="row">
-            <div class="col-lg-3">
-              <li class="menu-item"> <a href="shortcodes/about.html"></a> </li>
-              <li class="menu-item"> <a href="shortcodes/about-volunteer.html"></a> </li>
-             </div>
-            
-          </div>
-        </ul>
+      <li class="menu-item ">
+        <a href="{{url('about')}}">A Propos</a>
+        
       </li>
 
       <li class="menu-item ">
-        <a href="blog.html">Blog</a>
+        <a href="{{url('activity')}}">Activités</a>
+        
+      </li>
+
+      <li class="menu-item ">
+        <a href="{{url('event')}}">Evenements</a>
+        
+      </li>
+
+      <li class="menu-item ">
+        <a href="{{url('giving')}}">Dons</a>
+        
+      </li>
+
+      <li class="menu-item ">
+        <a href="{{url('blog')}}">Blog</a>
         
       </li>
       
       <li class="menu-item">
-        <a href="contact.html">Contact</a>
+        <a href="{{url('contact')}}">Contact</a>
       </li>
   </ul>
 
@@ -324,7 +311,7 @@
       <div class="container-fluid">
         <div class="sigma_header-top-inner">
           <ul class="sigma_header-top-links">
-            <li class="menu-item"> <a href="tel:+123456789"> <i class="fal fa-phone"></i> (+123) 123 4567 890</a> </li>
+          <li class="menu-item"> <a href="tel:+22969374444"> <i class="fal fa-phone"></i> (+229) 69 37 44 44</a> </li>
             <li class="menu-item"> <a href="mailto:info@example.com"> <i class="fal fa-envelope"></i> info@domain.com</a> </li>
           </ul>
           <!--<div class="sigma_header-middle">
@@ -356,7 +343,7 @@
           </div>-->
           <ul class="sigma_sm">
            <li class="d-flex align-items-center">
-              <a href="broadcast.html" class="live">
+              <a href="{{url('live')}}" class="live">
                 <i class="fa fa-circle"></i>
                 Live
               </a>
@@ -364,18 +351,7 @@
             <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
             <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
             <li> <a href="#"> <i class="fab fa-instagram"></i> </a> </li>
-            <li class="sigma_user-avatar">
-                <a href="#"> <img src="{{ asset('assets/img/user.jpg') }}" class="rounded-circle" alt="user"> </a>
-                <ul class="cart-dropdown">
-                  <li>
-                    <a href="dashboard/index.html">Profil</a>
-                  </li>
-                  
-                  <li>
-                    <a href="#">Se déconnecter</a>
-                  </li>
-                </ul>
-              </li>
+            
           </ul>
         </div>
       </div>
@@ -384,7 +360,7 @@
     
     <!-- Middle Header Start -->
     <div class="sigma_header-middle">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <nav class="navbar">
 
           <!-- Logo Start -->
@@ -397,58 +373,40 @@
 
           <!-- Menu -->
           <ul class="navbar-nav">
-              <li class="menu-item ">
-                <a href="index.html">Accueil</a>
-                
-              </li>
-              
-    
-              <li class="menu-item menu-item-has-children mega-menu-wrapper">
-                <a href="about.html">A Propos</a>
-                <ul class="sub-menu">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <li class="menu-item"> <a href="shortcodes/about.html">Historique</a> </li>
-                      <li class="menu-item"> <a href="shortcodes/about-volunteer.html">Nos Apôtres</a> </li>
-                     </div>
-                    <div class="col-lg-6">
-                    
-                      <li class="menu-item"> <a href="shortcodes/donation.html">Dons</a> </li>
-                      <li class="menu-item"> <a href="shortcodes/events.html">Evenements</a> </li>
-                      <li class="menu-item"> <a href="shortcodes/features.html">Partenaires</a> </li>
-                    </div>
-                    
-                    
-                  </div>
-                </ul>
-              </li>
+          <li class="menu-item ">
+        <a href="{{url('home')}}">Accueil</a>
+        
+       </li>
+      
 
-              <li class="menu-item menu-item-has-children mega-menu-wrapper">
-                <a href="activity.html">Activités</a>
-                <ul class="sub-menu">
-                  <div class="row">
-                    <div class="col-lg-3">
-                      <li class="menu-item"> <a href="shortcodes/about.html"></a> </li>
-                      <li class="menu-item"> <a href="shortcodes/about-volunteer.html"></a> </li>
-                     </div>
-                    
-                  </div>
-                </ul>
-              </li>
+      <li class="menu-item ">
+        <a href="{{url('about')}}">A Propos</a>
+        
+      </li>
 
-              <li class="menu-item ">
-                <a href="events.html">Evénements</a>
-                
-              </li>
+      <li class="menu-item ">
+        <a href="{{url('activity')}}">Activités</a>
+        
+      </li>
 
-              <li class="menu-item ">
-                <a href="blog.html">Blog</a>
-                
-              </li>
-              
-              <li class="menu-item">
-                <a href="contact.html">Contact</a>
-              </li>
+      <li class="menu-item ">
+        <a href="{{url('event')}}">Evenements</a>
+        
+      </li>
+
+      <li class="menu-item ">
+        <a href="{{url('giving')}}">Dons</a>
+        
+      </li>
+
+      <li class="menu-item ">
+        <a href="{{url('blog')}}">Blog</a>
+        
+      </li>
+      
+      <li class="menu-item">
+        <a href="{{url('contact')}}">Contact</a>
+      </li>
           </ul>
 
           <!-- Controls -->
