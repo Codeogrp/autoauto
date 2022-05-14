@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Http\Controllers;
+namespace App\Http\Api\Controllers;
 use PDF;
 use FedaPay\FedaPay;
 use App\Models\Payment;
@@ -9,10 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
-
-class FedapayController extends Controller
+class ApifedapayController extends Controller
 {
-    //
     public function __construct()
     {
         $this->transaction = new Transaction();
@@ -64,15 +61,15 @@ class FedapayController extends Controller
             ]
         ];
 
-        return [
+        $data= [
             'description' => 'Don AutoAuto ...!',
             'amount' => $request->amount,
             'currency' => ['iso' => 'XOF'],
             'callback_url' => url('callback'),
             'customer' => $customer_data
         ];
+        return response()->json( [$data ] , 200);
     }
-
     
     public function callback(Request $request)
     {
@@ -132,9 +129,29 @@ class FedapayController extends Controller
         } catch(\Exception $e) {
             $message = $e->getMessage();
         }
-
-        return view('callback', compact('message'));
+        return response()->json( [$message] , 200);
     }
 
 
+    public function indexcamp()
+    {
+        // $campaigns = auth()->user()->campaigns;
+        $campaigns = Campaign::latest(); 
+        // $campaigns = auth()->user()->campaigns;
+ 
+        return response()->json(  $campaigns );
+    }
+ 
+    public function showcamp($id)
+    {
+        $campaign = Campaign::find($id);
+
+        // $campaign = auth()->user()->campaigns()->find($id);
+
+        if (!$campaign) {
+            return response()->json('sorry', 400);
+        }
+ 
+        return response()->json( [$campaign->toArray()] , 200);
+    }
 }

@@ -492,7 +492,7 @@
                 <p class="subtitle">Faites un don</p>
                 <h4 class="title">Aidez notre communauté à travers votre appui</h4>
             </div>
-            <form method="post">
+            <form action="{{ route('process') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-row sigma_donation-form">
                     <div class="col-lg-6">
                             <div class="col-12">
