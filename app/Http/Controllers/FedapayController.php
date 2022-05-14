@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
 
 class FedapayController extends Controller
 {
+        public Transaction $transaction;
+
     //
     public function __construct()
     {
@@ -27,6 +29,11 @@ class FedapayController extends Controller
             //     'body' => 'required'
             // ]);
         
+            
+        try {
+                $transaction = Transaction::create(
+                $this->fedapayTransactionData( $request)
+            );
             $payment = Payment::create([ 
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
@@ -36,13 +43,8 @@ class FedapayController extends Controller
                 'payment_method' => $request->payment_method,
                 'message' => $request->message,
                 'campaigns' => $request->campaigns,
-                'transaction_number' =>date('ymdis').'-'.substr($request->firstname,0 , 3).'-'.substr($request->firstname,0 , 3),
+                'transaction_number' =>date('ymdis').'_'.substr($request->firstname,0 , 3).'_'.substr($request->lastname,0 , 3),
             ]);
-        try {
-            $transaction = Transaction::create(
-                $this->fedapayTransactionData( $request)
-            );
-            
             $payment->update(['feda_id' => $transaction->id]);
             $token = $transaction->generateToken();
 
@@ -55,8 +57,8 @@ class FedapayController extends Controller
     private function fedapayTransactionData(Request $request)
     {
         $customer_data = [
-            'firstname' => $request->nom,
-            'lastname' => $request->prenom,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
             'email' => $request->email,
             'phone_number' => [
                 'number'  => $request->tel,
@@ -84,6 +86,26 @@ class FedapayController extends Controller
             switch($transaction->status) {
                 case 'approved':
                     $message = 'Transaction approuvée.';
+                break;
+                case 'canceled':
+                    $message = 'Transaction annulée.';
+                break;
+                case 'pending':
+                    $message = 'Transaction encours.';
+                break;
+                case 'declined':
+                    $message = 'Transaction déclinée.';
+                break;
+            }
+
+        } catch(\Exception $e) {
+            $message = $e->getMessage();
+        }
+
+        return view('callback', compact('message'));
+    }
+
+    public function invoice(Request $request){
                     $entite =[ 
                         'name'=>'AutoAuto',
                         'email'=>'autoauto@gmail.com',
@@ -111,29 +133,21 @@ class FedapayController extends Controller
                             'utilisateur' => $utilisateur,
                             'entite' => $entite
                     ];
+                    if($request->has('download'))
+                    {
+                      
                     $pdf = PDF::loadView('invoices',$data);
                     Mail::send('mail', $data, function ($message) use ($data, $pdf) {
                         $message->to($data["email"], $data["email"])
                             ->subject($data["title"])
-                            ->attachData($pdf->output(), "invoiceJDD.pdf");
+                            ->attachData($pdf->output(), "AutoAuto.pdf");
                     });
                     
                     Session::flash('flash_message', ' Merci pour votre don.');
                     Session::flash('flash_type', 'alert-success');
-                break;
-                case 'canceled':
-                    $message = 'Transaction annulée.';
-                break;
-                case 'declined':
-                    $message = 'Transaction déclinée.';
-                break;
-            }
-
-        } catch(\Exception $e) {
-            $message = $e->getMessage();
-        }
-
-        return view('callback', compact('message'));
+                    return $pdf->download('pdfview.pdf');
+                }
+                return view('invoices',compact('utilisateur','data','entite'));
     }
 
 

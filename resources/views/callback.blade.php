@@ -87,6 +87,7 @@
                                 <path class="success2" d="M23.7,2.3a1,1,0,0,0-1.4,0L12,12.6,9.7,10.3a1,1,0,0,0-1.4,1.4l3,3a1,1,0,0,0,1.4,0l11-11A1,1,0,0,0,23.7,2.3Z" transform="translate(-1 -1)" style="fill: #8fd01f"/>
                             </svg>
                             <h4 class="success">{{ $message }}</h4>
+                            <a  href="{{route('invoice')}}">Facture</a>
                         </div>
                     @else
                         <h4 class="error">{{ $message }}</h4>

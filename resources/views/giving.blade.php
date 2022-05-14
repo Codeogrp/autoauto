@@ -619,6 +619,8 @@
         </div>
     </div>
     <!-- sermon End -->
+    <a href="{{ route('process') }} ">Buy (500 FCFA)</a>
+
     <!-- partial:partia/__footer.html -->
     <footer class="sigma_footer footer-2 sigma_footer-dark">
         <!-- Middle Footer -->

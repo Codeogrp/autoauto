@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{{title}}</title>
+        <title>Facture</title>
         <style>
             * {
                 -webkit-box-sizing: border-box;
@@ -60,16 +60,9 @@
                 box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
             }
         </style>
-        @if(duplicate_header)
-            <style>
-                @page { margin-top: 140px;}
-                header {
-                    top: -100px;
-                    position: fixed;
-                }
-            </style>
-        @endif
+      
     </head>
+    @p
     <body>
         <header>
             <div style="position:absolute; left:0pt; width:250pt;">
