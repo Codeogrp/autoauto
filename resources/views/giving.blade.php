@@ -552,7 +552,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <h5>Campaigns</h5>
-                                    <select class="form-control">
+                                    <select name="campaigns" class="form-control">
                                         <option name="campaigns" value="1" selected>Education for Every Child - (Target: 10000.00)</option>
                                         <option name="campaigns" value="2">Education for Every Child - (Target: 10000.00)</option>
                                         <option name="campaigns" value="3">Education for Every Child - (Target: 15000.00)</option>

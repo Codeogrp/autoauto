@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use PDF;
 use FedaPay\FedaPay;
-use App\Models\Don;
+use App\Models\Payment;
 use FedaPay\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -22,13 +22,12 @@ class FedapayController extends Controller
 
     public function process(Request $request)
     {
-        try {
-            // $request->validate([
+       // $req est->validate([
             //     'title' => 'required|unique:posts|max:200',
             //     'body' => 'required'
             // ]);
         
-            $payment = Don::create([ 
+            $payment = Payment::create([ 
                 'firstname' => $request->firstname,
                 'lastname' => $request->lastname,
                 'email' => $request->email,
@@ -39,6 +38,7 @@ class FedapayController extends Controller
                 'campaigns' => $request->campaigns,
                 'transaction_number' =>date('ymdis').'-'.substr($request->firstname,0 , 3).'-'.substr($request->firstname,0 , 3),
             ]);
+        try {
             $transaction = Transaction::create(
                 $this->fedapayTransactionData( $request)
             );
