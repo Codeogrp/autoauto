@@ -53,3 +53,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
+// FedaPay
+Route::any('/process', [FedapayController::class, 'process'])->name('process');
+Route::get('/callback', [FedapayController::class, 'callback'])->name('callback');
+Route::resource('invoices', InvoiceController::class);

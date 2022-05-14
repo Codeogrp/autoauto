@@ -502,7 +502,7 @@
                                         <div class="input-group-prepend">
                                             <button class="sigma_btn-custom shadow-none btn-sm" type="button">$</button>
                                         </div>
-                                        <input type="text" class="form-control ms-0" placeholder="$100">
+                                        <input type="text" name='amount'class="form-control ms-0" placeholder="$100">
                                     </div>
                                     <ul class="sigma_select-amount">
                                         <li>$15.00</li>
@@ -518,11 +518,11 @@
                                     <h5>Payment Method</h5>
                                     <div class="d-flex align-items-center">
                                         <div class="d-flex align-items-center">
-                                            <input type="radio" id="radio" name="radio" value="Online Payment">
+                                            <input type="radio" id="radio" name="payment_method" value="Online Payment">
                                             <label for="radio" class="mb-0">Online Payment</label>
                                         </div>
                                         <div class="d-flex align-items-center ms-4">
-                                            <input type="radio" id="radio2" name="radio" value="Offline Payment">
+                                            <input type="radio" id="radio2" name="payment_method" value="Offline Payment">
                                             <label for="radio2" class="mb-0">Offline Payment</label>
                                         </div>
                                     </div>
@@ -534,12 +534,18 @@
                                 <div class="form-group">
                                     <h5>Informations du donateur</h5>
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" placeholder="Full Name" name="name">
+                                        <div class="col-lg-3">
+                                            <input type="text" class="form-control" placeholder="First Name" name="firstname">
                                         </div>
-                                        <div class="col-lg-6 mt-3 mt-lg-0">
+                                        <div class="col-lg-3">
+                                          <input type="text" class="form-control" placeholder="Last Name" name="lastname">
+                                      </div>
+                                        <div class="col-lg-3 mt-3 mt-lg-0">
                                             <input type="email" placeholder="Email Address" name="email" class="form-control">
                                         </div>
+                                        <div class="col-lg-3 mt-3 mt-lg-0">
+                                          <input type="tel" placeholder="phone number" name="tel" class="form-control">
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -547,10 +553,10 @@
                                 <div class="form-group">
                                     <h5>Campaigns</h5>
                                     <select class="form-control">
-                                        <option value="1" selected>Education for Every Child - (Target: 10000.00)</option>
-                                        <option value="2">Education for Every Child - (Target: 10000.00)</option>
-                                        <option value="3">Education for Every Child - (Target: 15000.00)</option>
-                                        <option value="4">Education for Every Child - (Target: 25000.00)</option>
+                                        <option name="campaigns" value="1" selected>Education for Every Child - (Target: 10000.00)</option>
+                                        <option name="campaigns" value="2">Education for Every Child - (Target: 10000.00)</option>
+                                        <option name="campaigns" value="3">Education for Every Child - (Target: 15000.00)</option>
+                                        <option name="campaigns" value="4">Education for Every Child - (Target: 25000.00)</option>
                                     </select>
                                 </div>
                             </div>
