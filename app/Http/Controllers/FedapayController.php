@@ -121,7 +121,7 @@ class FedapayController extends Controller
                         'message'=>'autoauto@gmail.com'
                     ];
                 
-                    $data = [
+                    $data= [
                             'title' => 'Don AutoAuto ',
                             'date' => date('d/m/Y'),
                             'email'=> 'nnicolepatry@gmail.com',
@@ -131,7 +131,6 @@ class FedapayController extends Controller
                     ];
                     if($request->has('download'))
                     {
-                      
                     $pdf = PDF::loadView('invoices',$data);
                     Mail::send('mail', $data, function ($message) use ($data, $pdf) {
                         $message->to($data["email"], $data["email"])
