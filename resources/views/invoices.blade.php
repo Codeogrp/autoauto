@@ -121,7 +121,7 @@
                 <br />
                 <tbody>
                 <tr>
-                    <td>Don  campagne {{ $data["utilisateur"]["campaigns"] }}</td>
+                    <td>Don campagne {{ $data["utilisateur"]["campaigns"] }}</td>
                     <td>{{ $data["utilisateur"]["amount"] }}</td>
                 </tr>
                 </tbody>
