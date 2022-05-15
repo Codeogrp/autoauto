@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class FedapayController extends Controller
 {
-        public Transaction $transaction;
+        // public Transaction $transaction;
 
     //
     public function __construct()
@@ -24,11 +24,7 @@ class FedapayController extends Controller
 
     public function process(Request $request)
     {
-       // $req est->validate([
-            //     'title' => 'required|unique:posts|max:200',
-            //     'body' => 'required'
-            // ]);
-        
+
             
         try {
                 $transaction = Transaction::create(
@@ -102,7 +98,7 @@ class FedapayController extends Controller
             $message = $e->getMessage();
         }
 
-        return view('callback', compact('message'));
+        return view('callback', compact('message', 'transaction_id'));
     }
 
     public function invoice(Request $request){

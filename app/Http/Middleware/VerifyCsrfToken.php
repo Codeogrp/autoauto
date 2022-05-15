@@ -13,6 +13,8 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'process'
+        'process',
+        'api/process'
+
     ];
 }

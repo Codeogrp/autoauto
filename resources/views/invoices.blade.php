@@ -62,76 +62,79 @@
         </style>
       
     </head>
-    @p
+    {{-- @php
+         dd($data, $data["title"], $data["entite"]["adresse"] )
+    @endphp --}}
     <body>
         <header>
             <div style="position:absolute; left:0pt; width:250pt;">
-                <img class="img-rounded" src="{{ asset('assets/img/logo.png') }}" height="100px" >
+                <img class="img-rounded" src="{{ asset('assets/img/logo.png') }}" height="50px" >
             </div>
             <div style="margin-left:300pt;">
-                <b>Date: </b> {{ $data->date->formatLocalized('%A %d %B %Y') }}<br />
-                    <b>Invoice #: </b> {{ $data->utilisateur[transaction_number]}}
+                <b>Date: </b> {{ $data["date"]}}<br />
+                    <b>Invoice #: </b> {{ $data["utilisateur"]["transaction_number"]}}
                 <br />
             </div>
             <br />
-            <h2>{{ $data->utilisateur[campaigns]}}</h2>
+            <h2>{{ $data["utilisateur"]["campaigns"]}}</h2>
         </header>
         <main>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{route('invoices.index',['download'=>'pdf'])}}">Download PDF</a>
+                <a class="btn btn-primary" href="{{route('invoice',['download'=>'pdf'])}}">Download PDF</a>
               </div>
             <div style="clear:both; position:relative;">
                 <div style="position:absolute; left:0pt; width:250pt;">
-                    <h4>Info AutoAuto:</h4>
+                    <h4>AutoAuto:</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            {{ $data->entite[name] }}<br />
-                            {{ $data->entite[email] }}<br />
-                            ID: {{ $data->utilisateur[transaction_number] }}<br />
-                            campaigns: {{ $data->utilisateur[campaigns] }}<br />
-                            {{ $data->entite[tel] }}<br />
-                            {{ $data->entite[adresse] }}<br />
+                            {{ $data["entite"]["name"] }}<br />
+                            {{ $data["entite"]["email"] }}<br />
+                            ID: {{ $data["utilisateur"]["transaction_number"] }}<br />
+                            campaigns: {{ $data["utilisateur"]["campaigns"] }}<br />
+                            {{ $data["entite"]["tel"] }}<br />
+                            {{ $data["entite"]["adresse"] }}<br />
                             
                         </div>
                     </div>
                 </div>
                 <div style="margin-left: 300pt;">
-                    <h4>Customer Donneur:</h4>
+                    <h4>Donneur:</h4>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            {{ $data->utilisateur[firstname] }}<br />
-                            ID: {{ $data->utilisateur[lastname] }}<br />
-                            {{ $data->utilisateur[tel] }}<br />
-                            {{ $data->utilisateur[email] }}<br />
-                            {{ $data->utilisateur[payment_method] }} {{ $data->utilisateur[city] }}
-                            {{ $data->utilisateur[country] }}<br />
+                            {{ $data["utilisateur"]["firstname"] }}<br />
+                            ID: {{ $data["utilisateur"]["lastname"] }}<br />
+                            {{ $data["utilisateur"]["tel"] }}<br />
+                            {{ $data["utilisateur"]["email"] }}<br />
+                            {{ $data["utilisateur"]["payment_method"] }}
                         </div>
                     </div>
                 </div>
             </div>
-            <h4>Items:</h4>
+            <br/>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Item Name</th>
-                        <th>Amount</th>
+                        <th>Don</th>
+                        <th>Montant</th>
                     </tr>
                 </thead>
+                <br />
                 <tbody>
                 <tr>
-                    <td>Don  campagne {{ $data->utilisateur[campaigns] }}</td>
-                    <td>{{ $data->utilisateur[amount] }}</td>
+                    <td>Don  campagne {{ $data["utilisateur"]["campaigns"] }}</td>
+                    <td>{{ $data["utilisateur"]["amount"] }}</td>
                 </tr>
                 </tbody>
             </table>
             <div style="clear:both; position:relative;">
                 <div style="margin-left: 300pt;">
+                    <br>
                     <h4>Total:</h4>
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
                                 <td><b>TOTAL</b></td>
-                                <td><b>{{ $data->utilisateur[amount] }} fcfa</b></td>
+                                <td><b>{{ $data["utilisateur"]["amount"] }} fcfa</b></td>
                             </tr>
                         </tbody>
                     </table>
