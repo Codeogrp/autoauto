@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApifedapayController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// FedaPay
+Route::any('process', [ApifedapayController::class, 'process'])->name('process');
+Route::get('callback', [ApifedapayController::class, 'callback'])->name('callback');
+Route::any('invoice', [ApifedapayController::class, 'invoice'])->name('invoice');

@@ -552,7 +552,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <h5>Campaigns</h5>
-                                    <select class="form-control">
+                                    <select name="campaigns" class="form-control">
                                         <option name="campaigns" value="1" selected>Education for Every Child - (Target: 10000.00)</option>
                                         <option name="campaigns" value="2">Education for Every Child - (Target: 10000.00)</option>
                                         <option name="campaigns" value="3">Education for Every Child - (Target: 15000.00)</option>
@@ -619,6 +619,8 @@
         </div>
     </div>
     <!-- sermon End -->
+    <a href="{{ route('process') }} ">Buy (500 FCFA)</a>
+
     <!-- partial:partia/__footer.html -->
     <footer class="sigma_footer footer-2 sigma_footer-dark">
         <!-- Middle Footer -->
