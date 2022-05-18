@@ -80,7 +80,7 @@
         </header>
         <main>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{route('invoice',['download'=>'pdf'])}}">Download PDF</a>
+                <a class="btn btn-primary" href="{{route('invoice',$transaction_id,['download'=>'pdf'])}}">Download PDF</a>
               </div>
             <div style="clear:both; position:relative;">
                 <div style="position:absolute; left:0pt; width:250pt;">

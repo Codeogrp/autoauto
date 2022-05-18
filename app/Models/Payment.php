@@ -20,5 +20,7 @@ class Payment extends Model
         'message',
         'campaigns',
         'feda_id',
+        'status',
+        'detailtransaction',
     ];
 }

@@ -40,6 +40,7 @@ class FedapayController extends Controller
                 'message' => $request->message,
                 'campaigns' => $request->campaigns,
                 'transaction_number' =>date('ymdis').'_'.substr($request->firstname,0 , 3).'_'.substr($request->lastname,0 , 3),
+                'status' => "nouveau",
             ]);
             $payment->update(['feda_id' => $transaction->id]);
             $token = $transaction->generateToken();
@@ -72,27 +73,58 @@ class FedapayController extends Controller
     }
 
     
-    public function callback(Request $request)
-    {
+    public function callback(Request $request){
+
+
         $transaction_id = $request->input('id');
         $message = '';
 
         try {
             $transaction = Transaction::retrieve($transaction_id);
-            switch($transaction->status) {
-                case 'approved':
-                    $message = 'Transaction approuvée.';
-                break;
-                case 'canceled':
-                    $message = 'Transaction annulée.';
-                break;
-                case 'pending':
-                    $message = 'Transaction encours.';
-                break;
-                case 'declined':
-                    $message = 'Transaction déclinée.';
-                break;
-            }
+
+            $detailtrans = array(
+                "reference"=>$transaction->reference,
+                "receipt_url"=>$transaction->receipt_url, 
+                "status"=>$transaction->status,
+                "mode"=>$transaction->mode,
+                "operation"=>$transaction->operation, 
+                "commission"=>$transaction->commission,
+                "created_at"=>$transaction->created_at,
+                "updated_at"=>$transaction->updated_at,
+                "approved_at"=>$transaction->approved_at
+            );
+            // $detailtransaction = json_encode($detailtrans);
+
+            // dd($transaction,$transaction->reference,$detailtransaction,);
+
+            $payment = Payment::where('feda_id', $transaction->id)->first();
+            if($request->close == 'true'){
+                $payment -> update(['status' => 'annuler']);
+                $message = 'Transaction annulée.';
+            } else {
+                    switch($transaction->status) {
+                        case 'approved':
+                            $detailtransaction = json_encode($detailtrans);
+                            $payment -> update([
+                                'detailtransaction' => $detailtransaction,
+                                'status' => 'payer'
+                            ]);
+                            $message = 'Transaction approuvée.';
+                        break;
+                        case 'canceled':
+                            $payment -> update(['status' => 'annuler']);
+                            $message = 'Transaction annulée.';
+                        break;
+                        case 'pending':
+                            $payment -> update(['status' => 'encour']);
+                            $message = 'Transaction encours.';
+                        break;
+                        case 'declined':
+                            $payment -> update(['status' => 'annuler']);
+                            $message = 'Transaction déclinée.';
+                        break;
+                    }
+        }
 
         } catch(\Exception $e) {
             $message = $e->getMessage();
@@ -101,7 +133,8 @@ class FedapayController extends Controller
         return view('callback', compact('message', 'transaction_id'));
     }
 
-    public function invoice(Request $request){
+    public function invoice( $transaction_id ,Request $request){
+        $payment = Payment::where('feda_id', $transaction_id)->first();
                     $entite =[ 
                         'name'=>'AutoAuto',
                         'email'=>'autoauto@gmail.com',
@@ -110,15 +143,15 @@ class FedapayController extends Controller
                     ];
         
                     $utilisateur =[ 
-                        'transaction_number'=>'AutoAuto',
-                        'campaigns'=>'mondon',
-                        'firstname'=>'autoauto@gmail.com',
-                        'lastname'=>'AutoAuto',
-                        'email'=>'autoauto@gmail.com',
-                        'amount'=>'autoauto@gmail.com',
-                        'tel'=>'AutoAuto',
-                        'payment_method'=>'autoauto@gmail.com',
-                        'message'=>'autoauto@gmail.com'
+                        'transaction_number'=>$payment->transaction_number,
+                        'campaigns'=>$payment->campaigns,
+                        'firstname'=>$payment->firstname,
+                        'lastname'=>$payment->lastname,
+                        'email'=>$payment->email,
+                        'amount'=>$payment->amount,
+                        'tel'=>$payment->tel,
+                        'payment_method'=>$payment->payment_method,
+                        'message'=>$payment->message
                     ];
                 
                     $data= [
@@ -129,21 +162,19 @@ class FedapayController extends Controller
                             'utilisateur' => $utilisateur,
                             'entite' => $entite
                     ];
-                    if($request->has('download'))
-                    {
-                    $pdf = PDF::loadView('invoices',$data);
-                    Mail::send('mail', $data, function ($message) use ($data, $pdf) {
-                        $message->to($data["email"], $data["email"])
-                            ->subject($data["title"])
-                            ->attachData($pdf->output(), "AutoAuto.pdf");
-                    });
-                    
-                    Session::flash('flash_message', ' Merci pour votre don.');
-                    Session::flash('flash_type', 'alert-success');
-                    return $pdf->download('pdfview.pdf');
-                }
-                return view('invoices',compact('utilisateur','data','entite'));
+                    if($request->has('download')){
+                        $pdf = PDF::loadView('invoices',$data);
+                        Mail::send('mail', $data, function ($message) use ($data, $pdf) {
+                            $message->to($data["email"], $data["email"])
+                                ->subject($data["title"])
+                                ->attachData($pdf->output(), "AutoAuto.pdf");
+                        });
+                        
+                        Session::flash('flash_message', ' Merci pour votre don.');
+                        Session::flash('flash_type', 'alert-success');
+                        return $pdf->download('pdfview.pdf');
+                    }
+                return view('invoices',compact('utilisateur','data','entite','transaction_id'));
     }
-
 
 }
