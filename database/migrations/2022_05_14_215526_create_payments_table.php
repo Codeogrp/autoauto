@@ -15,16 +15,18 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_number')->unique();
-            $table->text('campaigns')->nullable();;
-            $table->string('firstname')->nullable();;
-            $table->string('lastname')->nullable();;
-            $table->string('email')->nullable();;
-            $table->double('amount')->nullable();;
-            $table->string('tel')->nullable();;
+            $table->text('campaigns')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('email')->nullable();
+            $table->double('amount')->nullable();
+            $table->string('tel')->nullable();
             $table->enum('payment_method',['Online Payment', 'Offline Payment'])->default('Online Payment');
-            $table->text('message')->nullable();;
-            $table->string('feda_id')->nullable();;
+            $table->text('message')->nullable();
+            $table->string('transaction_number')->unique();
+            $table->string('status')->nullable();
+            $table->string('feda_id')->nullable();
+            $table->json('detailtransaction')->nullable();
             $table->timestamps();
         });
     }
