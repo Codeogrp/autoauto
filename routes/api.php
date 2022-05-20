@@ -21,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // FedaPay
-Route::any('process', [ApifedapayController::class, 'process'])->name('process');
-Route::get('callback', [ApifedapayController::class, 'callback'])->name('callback');
-Route::any('invoice', [ApifedapayController::class, 'invoice'])->name('invoice');
+Route::any('processapi', [ApifedapayController::class, 'process'])->name('process');
+Route::get('callbackapi', [ApifedapayController::class, 'callback'])->name('callback');
+Route::any('invoiceapi', [ApifedapayController::class, 'invoice'])->name('invoice');
